@@ -7,6 +7,12 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using System.Net;
 using Microsoft.AspNet.Identity;
+using System.Globalization;
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security;
+
 
 namespace FitnessBuddy.Controllers
 {
@@ -75,7 +81,7 @@ namespace FitnessBuddy.Controllers
           return View("Index", "Home");
         }
 
-        /*
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult LogOff()
@@ -83,6 +89,8 @@ namespace FitnessBuddy.Controllers
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
             return RedirectToAction("Index", "Home");
         }
-        */
+     
+ 
+        
     }
 }

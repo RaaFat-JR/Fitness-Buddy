@@ -1,0 +1,85 @@
+﻿@model FitnessBuddy.Models.Member
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Register</h2>
+@using (Html.BeginForm("Register", "Members", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <h4>Create New Account</h4>
+    <hr />
+    @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(m => m.Full_Name, new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Full_Name, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Birthdate, new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Birthdate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.PhoneNumber, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-10">
+            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CurrentWeight, new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.CurrentWeight, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Goal, new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Goal, new { @class = "form-control" })
+        </div>
+    </div>
+
+    @Html.HiddenFor(m => m.Id)
+    <button class="btn btn-danger" type="submit">Create Account</button>
+}
+
+
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
