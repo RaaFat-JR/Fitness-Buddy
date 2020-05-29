@@ -24,12 +24,14 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("Programs", "About", "Programs")</li>
                     <li>@Html.ActionLink("Members", "MemberList", "Members")</li>
+                    <li>@Html.ActionLink("Feedback", "Create", "FeedBacks")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
     <div class="container body-content">
+        @Html.Partial("_Notifications")
         @RenderBody()
         <hr />
         <footer>

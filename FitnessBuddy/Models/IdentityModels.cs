@@ -22,6 +22,8 @@ namespace FitnessBuddy.Models
     {
         public DbSet<Member> Members { get; set; }
         public DbSet<Trainer> Trainers { get; set; }
+        public DbSet<FeedBack> FeedBacks { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
