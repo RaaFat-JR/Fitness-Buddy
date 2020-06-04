@@ -12,7 +12,7 @@
     @Html.ValidationSummary("", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(m => m.Full_Name, new { @class = "col-md-2 control-label" })
-        @Html.ValidationMessageFor(m => m.Full_Name)
+        
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.Full_Name, new { @class = "form-control" })
         </div>
@@ -20,7 +20,7 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        @Html.ValidationMessageFor(m => m.Email)
+        
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
         </div>
@@ -28,7 +28,7 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Birthdate, new { @class = "col-md-2 control-label" })
-        @Html.ValidationMessageFor(m => m.Birthdate)
+        
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.Birthdate, "{0:d MMM yyyy}", new { @class = "form-control" })
         </div>
@@ -43,7 +43,7 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        @Html.ValidationMessageFor(m => m.Password)
+        
         <div class="col-md-10">
             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
         </div>
@@ -51,9 +51,25 @@
 
     <div class="form-group">
         @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+        
         <div class="col-md-10">
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.CurrentWeight, new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.CurrentWeight, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Goal, new { @class = "col-md-2 control-label" })
+        
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Goal, new { @class = "form-control" })
         </div>
     </div>
 

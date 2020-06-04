@@ -35,5 +35,15 @@ namespace FitnessBuddy.Models
         public DateTime Birthdate { get; set; }
 
         public string PhoneNumber { get; set; }
+
+        [Required(ErrorMessage = "Please Enter Your Weight!")]
+        [Display(Name = "Current Weight in Kg.")]
+        public int CurrentWeight { get; set; }
+
+        [Required(ErrorMessage = "Tell Us Your Goal Please!")]
+        [Display(Name = "Goal You Wanna Acheive(Shred, Bulk)")]
+        public string Goal { get; set; }
+
+
     }
 }

@@ -1,0 +1,15 @@
+﻿@model FitnessBuddy.Models.Trainer
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>WELCOME ADMIN!</h2> <br /><br />
+
+
+<a href="@Url.Action("ViewMemberList", "Trainer")" class="btn btn-primary" >View Members List</a> <br /><br />
+
+<a href="#" class="btn btn-primary">Add Program</a> <br /><br />
+
+<a href="#" class="btn btn-primary">Assign Program</a>

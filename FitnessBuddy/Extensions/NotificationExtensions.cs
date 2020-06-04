@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
@@ -19,7 +19,7 @@ namespace FitnessBuddy.Extensions
     {
         private static IDictionary<String, String> NotificationKey = new Dictionary<String, String>
         {
-            { "Error",      "App.Notifications.Error" }, 
+            { "Error",      "App.Notifications.Error" },
             { "Warning",    "App.Notifications.Warning" },
             { "Success",    "App.Notifications.Success" },
             { "Info",       "App.Notifications.Info" }

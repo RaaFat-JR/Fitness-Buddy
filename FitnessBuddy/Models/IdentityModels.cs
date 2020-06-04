@@ -21,9 +21,8 @@ namespace FitnessBuddy.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Member> Members { get; set; }
-        public DbSet<Trainer> Trainers { get; set; }
+        public DbSet<Trainer> Trainer { get; set; }
         public DbSet<FeedBack> FeedBacks { get; set; }
-
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -33,5 +32,7 @@ namespace FitnessBuddy.Models
         {
             return new ApplicationDbContext();
         }
+
+        
     }
 }
