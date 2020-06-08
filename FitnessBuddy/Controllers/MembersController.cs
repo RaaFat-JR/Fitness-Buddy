@@ -89,6 +89,18 @@ namespace FitnessBuddy.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+
+        public ActionResult Delete (int id)
+        {
+            var x = Db.Members.SingleOrDefault(c => c.Id == id);
+
+            if(x == null)
+                return HttpNotFound();
+
+            Db.Members.Remove(x);
+            Db.SaveChanges();
+            return RedirectToAction("MemberList");
+        }
         
     }
 }
