@@ -89,6 +89,36 @@ namespace FitnessBuddy.Controllers
             }
             return RedirectToAction("Index", "Home");
         }
+
+        
+        public ActionResult Edit(int id)
+        {
+            var memb = Db.Members.SingleOrDefault(c => c.Id == id);
+
+            if(memb == null)
+               return HttpNotFound();
+       
+            return View(memb);
+        }
+
+        [HttpPost]
+        public ActionResult Update (Member memb)
+        {
+            var membInDb = Db.Members.Single(c => c.Id == memb.Id);
+
+            membInDb.Password = memb.Password;
+            membInDb.PhoneNumber = memb.PhoneNumber;
+            membInDb.Goal = memb.Goal;
+            membInDb.CurrentWeight = memb.CurrentWeight;
+            membInDb.ConfirmPassword = memb.ConfirmPassword;
+            membInDb.Birthdate = memb.Birthdate;
+            membInDb.Email = memb.Email;
+            membInDb.Full_Name = memb.Full_Name;
+
+            Db.SaveChanges();
+            return RedirectToAction("MemberList");
+
+        }
         
     }
 }
