@@ -65,13 +65,27 @@ namespace FitnessBuddy.Controllers
 
 
         [HttpPost]
-
         public ActionResult LogOff()
         {
             if (Session["username"] != null)
             {
                 Session.Abandon();
             }
+            return RedirectToAction("Index", "Home");
+        }
+
+        public ActionResult AddProgram ()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateProgram (Program prog)
+        {
+
+            Db.Programs.Add(prog);
+            Db.SaveChanges();
+
             return RedirectToAction("Index", "Home");
         }
     }
