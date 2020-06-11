@@ -27,6 +27,24 @@ namespace FitnessBuddy.Controllers
         }
 
 
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            Program pro = Db.Programs.Single(x => x.id == id);
+            return View(pro);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        public ActionResult DeleteConfirmation(int id)
+        {
+            Program pro = Db.Programs.Single(x => x.id == id);
+            Db.Programs.Remove(pro);
+            Db.SaveChanges();
+            return RedirectToAction("ProgramList");
+        }
+
+
+
         public ActionResult ProgramList()
         {
             var List = Db.Programs.ToList();
@@ -120,6 +138,21 @@ namespace FitnessBuddy.Controllers
             Db.SaveChanges();
             return RedirectToAction("ProgramList");
 
+        }
+        [HttpGet]
+        public ActionResult DeleteMember(int id)
+        {
+            Member mem = Db.Members.Single(x => x.Id == id);
+            return View(mem);
+        }
+        [HttpPost]
+        [ActionName("DeleteMember")]
+        public ActionResult DeleteConfirm(int id)
+        {
+            Member mem = Db.Members.Single(x => x.Id == id);
+            Db.Members.Remove(mem);
+            Db.SaveChanges();
+            return RedirectToAction("ViewMemberList");
         }
 
     }
