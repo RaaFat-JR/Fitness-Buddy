@@ -21,10 +21,22 @@ namespace FitnessBuddy.Controllers
             return View();
         }
 
-        public ActionResult MemberList()
+        public ActionResult ProgramList()
         {
-            var List = Db.Members.ToList();
+            var List = Db.Programs.ToList();
             return View(List);
+        }
+
+        public ActionResult viewmydata()
+        {
+            string user = Convert.ToString(Session["username"].ToString());
+            if (Session["username"] != null)
+            {
+                var b = Db.Members.Where(c => c.Email.Equals(user));
+                return View(b);
+            }
+
+            return RedirectToAction("index", "Members"); // Redirect to your login page
         }
 
         public ActionResult Register ()
@@ -57,8 +69,14 @@ namespace FitnessBuddy.Controllers
                     var log = Db.Members.Where(c => c.Email.Equals(login.UserName) && c.Password.Equals(login.Password)).FirstOrDefault();
                     if(log != null)
                     {
-                        Session["username"] = login.UserName;
-                        return RedirectToAction("Index", "Members");
+                         Session["username"] = login.UserName;
+                         if (login.UserName == ("admin@gmail.com") && (login.Password == "123654"))
+                         {
+                                return RedirectToAction("AdminHome", "Trainer");
+                         }
+                         else
+                         { return RedirectToAction("Index", "Members"); }
+                        
                     }
                     else
                     {
@@ -88,36 +106,6 @@ namespace FitnessBuddy.Controllers
                 Session.Abandon();
             }
             return RedirectToAction("Index", "Home");
-        }
-
-        
-        public ActionResult Edit(int id)
-        {
-            var memb = Db.Members.SingleOrDefault(c => c.Id == id);
-
-            if(memb == null)
-               return HttpNotFound();
-       
-            return View(memb);
-        }
-
-        [HttpPost]
-        public ActionResult Update (Member memb)
-        {
-            var membInDb = Db.Members.Single(c => c.Id == memb.Id);
-
-            membInDb.Password = memb.Password;
-            membInDb.PhoneNumber = memb.PhoneNumber;
-            membInDb.Goal = memb.Goal;
-            membInDb.CurrentWeight = memb.CurrentWeight;
-            membInDb.ConfirmPassword = memb.ConfirmPassword;
-            membInDb.Birthdate = memb.Birthdate;
-            membInDb.Email = memb.Email;
-            membInDb.Full_Name = memb.Full_Name;
-
-            Db.SaveChanges();
-            return RedirectToAction("MemberList");
-
         }
         
     }

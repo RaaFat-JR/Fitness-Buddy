@@ -1,0 +1,51 @@
+﻿@model IEnumerable<FitnessBuddy.Models.Program>
+
+@{
+    ViewBag.Title = "ProgramList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ProgramList</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AddProgram")
+</p>
+<table class="table" color="orange">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkOut_Plan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Training_Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supplments)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Type)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.WorkOut_Plan)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Training_Time)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Supplments)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "EditProgram", new { id = item.id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.id })
+    </td>
+</tr>
+}
+
+</table>

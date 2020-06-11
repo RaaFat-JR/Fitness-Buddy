@@ -270,15 +270,18 @@
     <Content Include="Views\Members\Register.cshtml" />
     <Content Include="Views\Members\Login.cshtml" />
     <Content Include="Views\Shared\LogPart.cshtml" />
-    <Content Include="Views\Members\MemberList.cshtml" />
     <Content Include="Views\Trainer\ViewMemberList.cshtml" />
     <Content Include="Views\Trainer\AdminHome.cshtml" />
     <Content Include="Views\FeedBacks\Create.cshtml" />
     <Content Include="Views\Shared\_Notifications.cshtml" />
-    <Content Include="Views\Trainer\Login.cshtml" />
     <Content Include="Views\Members\Index.cshtml" />
     <Content Include="Views\Members\Edit.cshtml" />
     <Content Include="Views\Trainer\AddProgram.cshtml" />
+    <Content Include="Views\Members\ProgramList.cshtml" />
+    <Content Include="Views\Trainer\ProgramList.cshtml" />
+    <Content Include="Views\Trainer\Edit.cshtml" />
+    <Content Include="Views\Trainer\EditProgram.cshtml" />
+    <Content Include="Views\Members\viewmydata.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
