@@ -10,7 +10,7 @@
 
 <table class="table table-striped table-hover " width="100">
     <thead>
-        <tr class="active" , color="orange">
+        <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Type)
             </th>
@@ -30,7 +30,7 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr class="active">
+            <tr class="info">
                 <td>
                     @Html.DisplayFor(modelItem => item.Type)
                 </td>

@@ -10,7 +10,7 @@
 <p>
     @Html.ActionLink("Create New", "AddProgram")
 </p>
-<table class="table" color="orange">
+<table class="table table-striped table-hover ">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Type)
@@ -28,7 +28,7 @@
     </tr>
 
 @foreach (var item in Model) {
-<tr>
+<tr class="info">
     <td>
         @Html.DisplayFor(modelItem => item.Type)
     </td>
